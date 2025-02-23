@@ -1,1 +1,1 @@
-# Tecoc.Teach.Maui
+# TecocTeachMaui
