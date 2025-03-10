@@ -1,4 +1,5 @@
-﻿using ConceptTest.ViewModels;
+﻿using CommunityToolkit.Maui;
+using ConceptTest.ViewModels;
 using Microsoft.Extensions.Logging;
 
 namespace ConceptTest;
@@ -9,6 +10,7 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
+		.UseMauiCommunityToolkit()
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
@@ -21,13 +23,7 @@ public static class MauiProgram
 #endif
 
 		builder.Services.AddTransient<MainViewModel>();
-		builder.Services.AddTransient<ListViewModel>();
-		builder.Services.AddSingleton<NavigationPage>();
 
-
-
-		var app = builder.Build();
-		Startup.ServiceProvider = app.Services;
-		return app;
+		return builder.Build();
 	}
 }
